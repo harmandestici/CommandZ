@@ -1,0 +1,188 @@
+
+<div class="alert alert-secondary" role="alert">
+    <h1 class="display-6">Créez votre compte</h1>
+</div>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <!-- <div class="col-md-6">
+        <mat-form-field>
+            <label for="inputFirstName" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="inputFirstName" formControlName="nom">
+            <mat-error class="field-error" *ngIf="userForm.get('nom').hasError('required')">
+                required
+            </mat-error>
+            <mat-error class="field-error" *ngIf="userForm.get('nom').hasError('minlength')">
+                must contains at least 2 characters.
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-md-6">
+        <label for="inputLastName" class="form-label">Prenom</label>
+        <input type="text" class="form-control" id="inputLastName" formControlName="prenom">
+    </div>
+    
+    <div class="col-12">
+        <label for="inputNiss" class="form-label">NISS</label>
+        <input type="text" class="form-control" id="inputNiss" placeholder="xxxxxx-xxx-xx" formControlName="regnational">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputUsername" class="form-label">Nom l'utilisateur</label>
+        <input type="text" class="form-control" id="inputUsername" formControlName="username">
+    </div>
+
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Mot de passe</label>
+        <input type="password" class="form-control" id="inputPassword4" formControlName="password">
+    </div>
+
+    <div class="col-12">
+        <label for="inputEmail" class="form-label">Courriel</label>
+        <input type="email" class="form-control" id="inputEmail" formControlName="email">
+    </div>
+    <div class="col-12">
+        <label for="inputRue" class="form-label">Rue</label>
+        <input type="text" class="form-control" id="inputRue" formControlName="rue">
+    </div>
+
+    <div class="col-md-2">
+        <label for="inputNumero" class="form-label">Numéro</label>
+        <input type="text" class="form-control" id="inputNumero" formControlName="numero">
+    </div>
+    <div class="col-md-4">
+        <label for="inputCodepostal" class="form-label">Code Postal</label>
+        <input type="text" class="form-control" id="inputCodepostal" formControlName="cdpostal">
+    </div>
+    <div class="col-md-6">
+        <label for="inputLocalite" class="form-label">Localité</label>
+        <input type="text" class="form-control" id="inputLocalite" formControl="localite">
+    </div> -->
+
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input  matInput  id="input-nom" formControlName="nom">
+          <mat-error class="field-error" *ngIf="userForm.get('nom').hasError('required')">
+            required
+        </mat-error>
+        <mat-error class="field-error" *ngIf="userForm.get('nom').hasError('minlength')">
+            must contains at least 2 characters.
+        </mat-error>
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Prenom</mat-label>
+          <input  matInput  id="input-prenom" formControlName="prenom">
+          <mat-error class="field-error" *ngIf="userForm.get('prenom').hasError('required')">
+            required
+          </mat-error>
+          <mat-error class="field-error" *ngIf="userForm.get('prenom').hasError('minlength')">
+             must contains at least 2 characters.
+          </mat-error>
+        </mat-form-field></td>
+      </tr>
+    </table>
+
+    <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>NISS</mat-label>
+          <input  matInput  id="inputNiss" placeholder="xxxxxx-xxx-xx" formControlName="regnational">
+          <mat-error class="field-error" *ngIf="userForm.get('regnational').hasError('required')">
+            required
+          </mat-error>
+          <mat-error class="field-error" *ngIf="userForm.get('regnational').hasError('minlength')">
+             must contains 11 characters.
+          </mat-error>
+          <mat-error class="field-error" *ngIf="userForm.get('regnational').hasError('maxlength')">
+            must contains 11 characters.
+         </mat-error>
+        </mat-form-field>
+    </p>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nom utilisateur</mat-label>
+          <input matInput id="inputUsername" formControlName="username">
+            <mat-error class="field-error" *ngIf="userForm.get('username').hasError('required')">
+                required
+            </mat-error>
+            <mat-error class="field-error" *ngIf="userForm.get('username').hasError('minlength')">
+                must contains at least 6 characters.
+            </mat-error>
+        </mat-form-field></td>
+
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput type="password" id="inputPassword4" formControlName="password"  [type]="showPassword ? 'text' : 'password'" name="password" >
+          <mat-icon matSuffix (click)="togglePasswordVisibility()"> {{showPassword?'visibility_off':'visibility'}}</mat-icon>
+          <!-- <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon> -->
+          <!-- <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint> -->
+          
+          
+            <mat-error class="field-error" *ngIf="userForm.get('password').hasError('required')">
+              required
+            </mat-error>
+            <mat-error class="field-error" *ngIf="userForm.get('password').hasError('minlength')">
+              must contains at least 8 characters. 
+            </mat-error>
+            <mat-error class="field-error" *ngIf="userForm.get('password').hasError('pattern')">
+              must contains at least one lower case, one upper case, one number and a special character.
+            </mat-error>
+            <mat-error class="field-error" *ngIf="userForm.get('password').hasError('pwdEqUsername')">
+                {{ userForm.get('password').getError('pwdEqUsername').value }}
+            </mat-error>
+        </mat-form-field></td>
+
+        
+    </tr></table>
+    <p>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Courriel</mat-label> 
+        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+         <mat-error *ngIf="userForm.get('email').hasError('email') && !userForm.get('email').hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="userForm.get('email').hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error> 
+    </mat-form-field>
+    </p>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Rue</mat-label> 
+        <input  matInput formControlName="rue" >
+        <mat-error *ngIf="userForm.get('rue').hasError('required')">
+          Rue is <strong>required</strong>
+        </mat-error> 
+        <mat-error *ngIf="userForm.get('rue').hasError('maxlength')">
+          must contains at maximum 40 characters.
+        </mat-error> 
+    </mat-form-field>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Numéro</mat-label>
+          <input matInput formControlName="numero">
+          <mat-error *ngIf="userForm.get('numero').hasError('required')">
+            Rue is <strong>required</strong>
+          </mat-error> 
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Code postal</mat-label>
+          <input matInput formControlName="cdpostal">
+          <mat-error *ngIf="userForm.get('cdpostal').hasError('required')">
+            Code postal is <strong>required</strong>
+          </mat-error> 
+        </mat-form-field></td> 
+        <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Ville</mat-label>
+            <input matInput formControlName="localite">
+            <mat-error *ngIf="userForm.get('localite').hasError('required')">
+                Localité is <strong>required</strong>
+            </mat-error> 
+        </mat-form-field></td>
+      </tr></table>
+
+    <div class="col-12">
+        <hr class="myline">
+        <button type="submit" class="btn btn-primary">Inscription</button>
+    </div>
+</form>

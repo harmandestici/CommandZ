@@ -1,0 +1,11 @@
+<div class="alert alert-secondary" role="alert">
+    <h1 class="display-6">Mes commandes</h1>
+</div>
+
+<mat-card class="mycard" *ngFor="let item of listCommande; let index =index;">
+    <mat-card-title>Commande - {{item.user.prenom}}  {{item.user.nom}} date {{item.dtcommande  | date :'short'}}</mat-card-title>
+    <mat-card-subtitle>Total - {{item.total}}€</mat-card-subtitle>
+    <mat-card-actions align="end">
+      <button mat-button>Detail</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,42 @@
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .col-xs-2{
+    width: 5%;
+  }
+.btn-primary{
+  width: 25%;
+}
+
+.example-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(245, 237, 237, 0.5);
+
+}
+
+.m-0{color: black;
+
+}
+.example-sidenav-content {
+  //display: flex;
+  width: 100%;
+  height: 100%;
+  //width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  //  position: absolute;
+  //  top: 150px;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  background: rgb(217, 231, 229);
+}
+
+.example-sidenav {
+  padding: 20px;
+  min-width: 350px;
+  background: rgb(217, 231, 229); 
+}

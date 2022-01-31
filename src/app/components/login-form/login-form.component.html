@@ -1,0 +1,37 @@
+
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<!-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="username" >
+<input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
+<input type="submit" class="fadeIn fourth" value="Log In"> -->
+    <!-- <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nom utilisateur</label>
+        <input type="text" class="form-control" id="login" name="login"  formControlName="username">
+  </div>
+  <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Mot de passe</label>
+        <input type="text" class="form-control" id="password" name="password" formControlName="password">
+  </div>
+  
+  <div class="col-12">
+      <button type="submit" class="btn btn-primary">Me connecter</button>
+  </div>  -->
+
+
+
+  <div class="card">
+    <div class="card-header">
+        Identifiez-vous
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Nom utilisateur</h5>
+      <input type="text" class="form-control" id="login" name="login"  formControlName="username">
+      <h5 class="card-title">Mot de passe</h5>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password">
+      <br>
+      <button type="submit" class="btn btn-primary">Me connecter</button>
+    </div>
+  </div>
+</form>
+
+<p><em>Nouveau client? </em><strong> <a href="user-insert" class="link-danger" >Créer un compte</a></strong></p>

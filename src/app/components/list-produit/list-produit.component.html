@@ -1,0 +1,31 @@
+
+<div class="container">
+  <div class="row">
+    <button type="button" class="btn btn-outline-success" autofocus (click)="setTriall()">All</button>
+    <button type="button" class="btn btn-outline-success" (click)="setTriplat()">Plat</button>
+    <button type="button" class="btn btn-outline-success" (click)="setTrientree()">Entrée</button>
+    <button type="button" class="btn btn-outline-success" (click)="setTriboisson()">Boisson</button>
+    <button type="button" class="btn btn-outline-success" (click)="setTridessert()">Dessert</button>
+  </div>
+</div>     
+<hr>
+
+<div class="container">
+    <div class="row">
+
+        <div class="card col-6" *ngFor="let item of listProduit_filtered" >
+            <div class="card-header">
+                <h4>{{ item.libelle }}</h4>
+            </div>
+            <div class="card-body produit-card-body">
+              <p class="card-text">Type : {{ item.typeproduit.libelle }}</p>
+              <a routerLink="/detail/{{item.id}}"><button class="btn btn-success">details</button> </a> 
+              
+              <button class="btn btn-danger" (click)="onDelete(item.id)" *ngIf="!confirmDeleteId">supprimer</button>
+              <button class="btn btn-danger" (click)="onConfirmDelete()" *ngIf="confirmDeleteId">confirmer</button>
+              <button class="btn btn-info" (click)="onCancelDelete()" *ngIf="confirmDeleteId">annuler</button>  
+            </div>
+          </div>
+
+    </div>
+</div>

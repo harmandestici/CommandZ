@@ -1,0 +1,53 @@
+<!-- <div *ngIf="produit$">
+    <h2>{{ produit$.libelle }}</h2>
+
+    <dl>
+        <dt>id</dt>
+        <dd>{{ produit$.id }}</dd>
+        <dt>prix</dt>
+        <dd>{{ produit$.prix }}</dd>
+        <dt>Info</dt>
+        <dd>{{ produit$.description }}</dd>
+
+    </dl>
+</div> -->
+
+ <form *ngIf="produit$" class="example-form" (ngSubmit)="submit()" [formGroup]="produitform">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Food Name</mat-label>
+            <input  matInput placeholder="Ex. Burger" [value]="produit$.libelle" class="form-control" id="input-libelle" formControlName="libelle">
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput placeholder="5$" [value]="produit$.prix" class="form-control" id="input-prix" formControlName="prix" >
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+             <mat-label>Description</mat-label>
+            <textarea matInput placeholder="Ex. It makes me feel..." [value]="produit$.description" class="form-control" id="input-description" formControlName="description" ></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Type produit</mat-label>
+            <select matNativeControl  name="typeproduit" class="form-control" id="input-typeproduit_id" formControlName="typeproduit_id">
+                <option *ngFor="let tp of (listTypeproduit$ | async)" [value]="tp.id">{{tp.libelle}}</option>
+              </select>
+
+            <!-- <mat-select  name="typeproduit" class="form-control" id="input-typeproduit_id" formControlName="typeproduit_id">
+                <mat-option *ngFor="let tp of (listTypeproduit$ | async)" [value]="tp.id">
+                  {{tp.libelle}}
+                </mat-option>
+            </mat-select> -->
+        </mat-form-field>
+        <br>
+    <div class="example-button-row">
+        <button type="submit" mat-raised-button color="warn">Update</button>
+    </div>
+  </form> 
+
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field> -->

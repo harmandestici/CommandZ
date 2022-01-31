@@ -1,0 +1,61 @@
+<div class="alert alert-secondary" role="alert">
+    <h1 class="display-6">Ajouter un nouveau produit.</h1>
+</div>
+
+<form class="example" (ngSubmit)="submit()" [formGroup]="produitform">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Food Name</mat-label>
+        <input  matInput placeholder="Ex. Burger" id="input-libelle" formControlName="libelle">
+        <mat-error class="field-error" *ngIf="produitform.get('libelle').hasError('required')">
+            required
+        </mat-error>
+        <mat-error class="field-error" *ngIf="produitform.get('libelle').hasError('minlength')">
+            must contains at least 4 characters.
+        </mat-error>
+        <mat-error class="field-error" *ngIf="produitform.get('libelle').hasError('maxlength')">
+            must contains at maximum 40 characters.
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Price</mat-label>
+        <input matInput placeholder="5$"  id="input-prix" formControlName="prix" >
+        <mat-error class="field-error" *ngIf="produitform.get('prix').hasError('required')">
+            required
+        </mat-error>
+        <mat-error class="field-error" *ngIf="produitform.get('prix').hasError('min')">
+           must be > 0
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+         <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."  class="form-control" id="input-description" formControlName="description" ></textarea>
+        <mat-error class="field-error" *ngIf="produitform.get('description').hasError('required')">
+            required
+        </mat-error>
+        <mat-error class="field-error" *ngIf="produitform.get('description').hasError('minlength')">
+            must contains at least 4 characters.
+        </mat-error>
+        <mat-error class="field-error" *ngIf="produitform.get('description').hasError('maxlength')">
+            must contains at maximum 200 characters.
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Type produit</mat-label>
+        <select matNativeControl  name="typeproduit"  id="input-typeproduit_id" formControlName="typeproduit_id">
+            <option *ngFor="let tp of (listTypeproduit$ | async)" [value]="tp.id">{{tp.libelle}}</option>
+          </select>
+          <mat-error class="field-error" *ngIf="produitform.get('typeproduit_id').hasError('required')">
+            required
+        </mat-error>
+        <!-- <mat-select  name="typeproduit" id="input-typeproduit_id" formControlName="typeproduit_id">
+            <mat-option *ngFor="let tp of (listTypeproduit$ | async)" [value]="tp.id">
+              {{tp.libelle}}
+            </mat-option>
+        </mat-select> -->
+    </mat-form-field>
+    <br>
+<div class="example-button-row">
+    <button type="submit" mat-raised-button color="warn">Update</button>
+</div>
+</form> 

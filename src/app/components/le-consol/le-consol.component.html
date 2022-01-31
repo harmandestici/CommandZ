@@ -1,0 +1,18 @@
+<div class="alert alert-secondary" role="alert">
+    <h1 class="display-6">Commande en cours</h1>
+</div>
+<mat-card class="mycard" *ngFor="let item of listCommande; let index =index;">
+    <mat-card-title>Commande - {{item.user.prenom}}  {{item.user.nom}} date {{item.dtcommande  | date :'short'}}</mat-card-title>
+    <mat-card-subtitle>Total - {{item.total}}€</mat-card-subtitle>
+    <mat-card-actions align="end">
+      <ng-container *ngIf="!item.pret; else cloturer" >
+        <button mat-button (click)="setPret(index)">Pret</button>
+      </ng-container>
+      <ng-template #cloturer>
+        <button mat-button (click)="setCloturer(index)">Cloturer</button>
+      </ng-template>
+      
+      <button mat-button>Detail</button>
+      <button mat-button>Supprimer</button>
+    </mat-card-actions>
+</mat-card>

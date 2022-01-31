@@ -1,0 +1,31 @@
+<h4 class="m-0">Votre panier de commande</h4>
+<!-- <div *ngFor="let item of lignecommandeinsertchild">
+    <h2>{{ item.libelle }}</h2>
+
+    <dl>
+        <dt>id</dt>
+        <dd>{{ item.id }}</dd>
+        <dt>prix</dt>
+        <dd>{{ item.prix }}</dd>
+        <dt>marque</dt>
+        <dd>{{ item.quantite }}</dd>
+    </dl>
+</div> -->
+
+<ol class="list-group" *ngFor="let item  of lignecommandeinsertchild; let index = index" >
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{ item.quantite }}  {{item.libelle}}</div>
+        
+         <button class="btn btn-outline-primary" id="delete{{index}}" type="button" (click)="onDelete(index)" >-</button>
+         <button class="btn btn-outline-primary" id="add{{index}}" type="button" (click)="onAdd(index)" >+</button>
+      </div>
+      <h3><span class="badge bg-primary rounded-pill">{{item.prix * item.quantite}}€ </span></h3>
+    </li>
+</ol>
+<input class="btn btn-primary" name="addcom" id="addcom"type="button" (click)="commander()" value="Payer {{total | currency:'EUR'}}" > 
+
+<ng-container *ngIf="IsLogged">
+  <mat-label>    Veuillez-vous connecter </mat-label>
+</ng-container>
+

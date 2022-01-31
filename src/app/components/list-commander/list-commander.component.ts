@@ -53,6 +53,7 @@ export class ListCommanderComponent implements OnInit {
     let lib : string = this.listProduit[id].libelle;
     let prx : number = this.listProduit[id].prix;
     //
+    
 
     //Pour Afficher les total dans le boutton
     this.totalCommande = this.totalCommande + (prx * parseInt(qte));

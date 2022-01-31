@@ -38,7 +38,6 @@ export class ProduitInsertComponent implements OnInit {
   submit(): void{
 
     //if(this.produitform.valid){
-
       let sub = this._service.insertOne(this.produitform.value ).subscribe({
                   next :(produit) =>{ alert("le produit a bien été ajouté")
                                       this._router.navigateByUrl("/list-produit"); 
